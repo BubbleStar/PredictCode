@@ -1,0 +1,17 @@
+language: python
+sudo: yes
+python:
+  - "3.5"
+  - "3.6"
+
+before_install:
+   - sudo apt-get -qq update
+   - sudo apt-get install -y libspatialindex-dev
+
+install: "pip install -r requirements.txt"
+
+script:
+  - pytest --cov=./
+  
+after_success:
+  - codecov
