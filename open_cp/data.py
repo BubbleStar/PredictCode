@@ -479,6 +479,6 @@ def points_from_lon_lat(points, proj=None, epsg=None):
     for i in range(len(points.timestamps)):
         transformed[0][i], transformed[1][i] = proj(points.xcoords[i], points.ycoords[i])
     
-    interference = 5 * (_np.random.random(points.coords.shape) - _np.random.random(points.coords.shape))
+    interference = 1 * (_np.random.random(points.coords.shape) - _np.random.random(points.coords.shape))
     transformed = transformed + interference
     return TimedPoints(points.timestamps, transformed)

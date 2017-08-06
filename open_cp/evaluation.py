@@ -191,7 +191,8 @@ class HitRateEvaluator(_predictors.DataTrainer):
                 continue
             out[start] = hit_rates(pred, points, coverage_levels)
             details[start] = HitRateDetail(
-                total_cell_count=_np.ma.sum(~pred.intensity_matrix.mask),
+                # total_cell_count=_np.ma.sum(~pred.intensity_matrix.mask),
+                total_cell_count=pred.intensity_matrix.size,
                 prediction = pred
                 )
         return HitRateResult(out, details)
